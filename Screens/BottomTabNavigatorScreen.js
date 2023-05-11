@@ -37,8 +37,8 @@ const BottomTabNavigatorScreen = ({ navigation }) => {
                     : require("../assets/img/home.png")
                 }
                 style={{
-                  width: 45,
-                  height: 45,
+                  width: 40,
+                  height: 40,
                 }}
               />
             ),
@@ -56,8 +56,8 @@ const BottomTabNavigatorScreen = ({ navigation }) => {
                     : require("../assets/img/map.png")
                 }
                 style={{
-                  width: 45,
-                  height: 45,
+                  width: 40,
+                  height: 40,
                 }}
               />
             ),
@@ -76,8 +76,8 @@ const BottomTabNavigatorScreen = ({ navigation }) => {
                     : require("../assets/img/gift.png")
                 }
                 style={{
-                  width: 48,
-                  height: 48,
+                  width: 45,
+                  height: 45,
                 }}
               />
             ),
@@ -95,8 +95,8 @@ const BottomTabNavigatorScreen = ({ navigation }) => {
                     : require("../assets/img/cup.png")
                 }
                 style={{
-                  width: 40,
-                  height: 40,
+                  width: 35,
+                  height: 35,
                 }}
               />
             ),
