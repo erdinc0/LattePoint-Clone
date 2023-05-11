@@ -3,7 +3,7 @@ import React from "react";
 
 const CupScreen = () => {
   return (
-    <View>
+    <View style={styles.mainContainer}>
       <Text>CupScreen</Text>
     </View>
   );
@@ -11,4 +11,8 @@ const CupScreen = () => {
 
 export default CupScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+  },
+});

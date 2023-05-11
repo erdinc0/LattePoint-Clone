@@ -185,6 +185,7 @@ export default MainScreen;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
+    backgroundColor: Renkler.bgColor,
   },
   logoImage: {
     resizeMode: "contain",
@@ -276,7 +277,9 @@ const styles = StyleSheet.create({
   },
   forShadow: {
     shadowOpacity: 0.5,
+    shadowRadius: 5,
     shadowOffset: { height: 2, width: 2 },
+    zIndex: 10,
   },
   baslik: { fontSize: 24, paddingLeft: 15 },
   baslikContainer: {
