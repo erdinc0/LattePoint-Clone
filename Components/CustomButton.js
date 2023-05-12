@@ -5,13 +5,13 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import CustomText from "./CustomText";
 
-const CustomButton = ({ children, icon, bgFill, bardak, style }) => {
+const CustomButton = ({ children, icon, bgFill, bardak, style, onPress }) => {
   let navigasyon = useNavigation();
 
   return (
     <View style={[styles.buttonMainContainer, style]}>
       <TouchableOpacity
-        onPress={() => (bardak ? navigasyon.navigate("CupScreen") : {})}
+        onPress={() => (bardak ? navigasyon.navigate("CupScreen") : onPress())}
       >
         <View
           style={[

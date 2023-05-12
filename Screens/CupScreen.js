@@ -4,7 +4,7 @@ import CupContainer from "../Components/CupContainer";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Renkler from "../Constants/Renkler";
 import CustomText from "../Components/CustomText";
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import CustomButton from "../Components/CustomButton";
 
 let deviceHeight = Dimensions.get("screen").height;
@@ -50,9 +50,9 @@ const CupScreen = ({ navigation }) => {
           </ScrollView>
         </View>
         <View style={styles.navLogoContainer}>
-          <MaterialIcons
+          <MaterialCommunityIcons
             style={styles.navLogo}
-            name="navigation"
+            name="cup-off-outline"
             size={24}
             color="black"
           />
@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     flex: 1,
-    backgroundColor: "white",
   },
   contentContainer: {
     alignItems: "center",
@@ -125,6 +124,7 @@ const styles = StyleSheet.create({
     borderTopEndRadius: 50,
     backgroundColor: "#fafafa",
     overflow: "hidden",
+    height: "100%",
   },
   navLogoContainer: {
     position: "absolute",

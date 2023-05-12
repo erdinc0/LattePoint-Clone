@@ -5,61 +5,70 @@ import {
   SafeAreaView,
   TextInput,
   Image,
+  Dimensions,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import Renkler from "../Constants/Renkler";
 import CustomButton from "../Components/CustomButton";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import CustomText from "../Components/CustomText";
+import { Ionicons } from "@expo/vector-icons";
+
+let deviceWidth = Dimensions.get("screen").width;
 
 const LoginScreen = () => {
   let navigasyon = useNavigation();
+
+  useEffect(() => {
+    navigasyon.setOptions({
+      headerShown: false,
+      headerTitle: "Giriş Yap",
+      headerLeft: () => {
+        return;
+      },
+    });
+  }, []);
+
   return (
-    <SafeAreaView>
-      <LinearGradient
-        // Background Linear Gradient
-        colors={[Renkler.bgColor, "white"]}
-        style={styles.background}
-      >
-        <View style={styles.mainContainer}>
-          <View
-            style={{
-              borderRadius: 30,
-              width: 300,
-              height: 300,
-              overflow: "hidden",
-              alignSelf: "center",
-            }}
+    <View style={styles.mainContainer}>
+      <View style={styles.profileContiner}>
+        <TouchableOpacity onPress={() => navigasyon.goBack()}>
+          <View style={styles.personContainer}>
+            <Ionicons style={styles.person} name="ios-chevron-back" />
+          </View>
+        </TouchableOpacity>
+      </View>
+
+      <View style={{ width: "80%", alignSelf: "center" }}>
+        <View style={styles.contextContainer}>
+          <CustomText style={styles.baslik}>Giriş Yap</CustomText>
+          <TextInput
+            placeholderTextColor={Renkler.griYazi}
+            style={styles.textInput}
+            placeholder="Telefon Numaranız..."
+          />
+
+          <TextInput
+            placeholderTextColor={Renkler.griYazi}
+            secureTextEntry={true}
+            style={styles.textInput}
+            placeholder="Şifreniz..."
+          />
+          <CustomButton
+            style={styles.CustomButton}
+            icon="login"
+            bgFill={true}
+            onPress={navigasyon.goBack}
           >
-            <Image
-              style={styles.underConstruction}
-              source={require("../assets/img/underConstruction.jpg")}
-            />
-          </View>
-          <View style={{ width: "80%", alignSelf: "center" }}>
-            <TouchableOpacity onPress={() => navigasyon.goBack()}>
-              <CustomButton icon="run" bgFill={true}>
-                <Text style={{ fontWeight: "800" }}>Geri Dön</Text>
-              </CustomButton>
-            </TouchableOpacity>
-          </View>
-          {/*  <View style={styles.contextContainer}>
-            <Text style={styles.title}>Telefon Numaranız: </Text>
-            <TextInput
-              style={styles.textInput}
-              placeholder="Telefon Numaranız..."
-            />
-            <Text style={styles.title}>Şifreniz: </Text>
-            <TextInput
-              secureTextEntry={true}
-              style={styles.textInput}
-              placeholder="Şifreniz..."
-            />
-          </View> */}
+            <CustomText style={{ fontFamily: "OpenSans-Regular" }}>
+              Giriş Yap
+            </CustomText>
+          </CustomButton>
         </View>
-      </LinearGradient>
-    </SafeAreaView>
+      </View>
+    </View>
   );
 };
 
@@ -69,11 +78,12 @@ const styles = StyleSheet.create({
   mainContainer: {
     height: "100%",
     justifyContent: "center",
+    backgroundColor: Renkler.bgColor,
   },
   contextContainer: {
     alignItems: "center",
     justifyContent: "center",
-    width: "60%",
+    width: "100%",
     alignSelf: "center",
   },
   title: {
@@ -83,13 +93,38 @@ const styles = StyleSheet.create({
   },
   textInput: {
     width: "100%",
-    borderWidth: 1,
     borderRadius: 50,
     padding: 20,
+    backgroundColor: "#dadada",
+    marginTop: 20,
   },
   underConstruction: {
     width: "100%",
     height: "100%",
     alignSelf: "center",
+  },
+  CustomButton: {
+    marginTop: 10,
+  },
+  baslik: {
+    fontFamily: "OpenSans-Bold",
+    fontSize: 24,
+  },
+  person: {
+    padding: 8,
+    fontSize: 22,
+    color: Renkler.bgColor,
+  },
+  personContainer: {
+    backgroundColor: "#5e5e5e",
+    borderRadius: 1000,
+  },
+  profileContiner: {
+    left: 20,
+    top: deviceWidth < 390 ? 36 : 66,
+    position: "absolute",
+    shadowOpacity: 0.1,
+    shadowOffset: { height: 0, width: 0 },
+    shadowRadius: 5,
   },
 });

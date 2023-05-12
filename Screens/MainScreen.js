@@ -9,13 +9,12 @@ import {
 } from "react-native";
 
 import CupContainer from "../Components/CupContainer";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import CoffeCard from "../Components/CoffeCard";
 import { Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 import Renkler from "../Constants/Renkler";
-import { useRef } from "react";
 
 let deviceWidth = Dimensions.get("screen").width;
 let deviceHeight = Dimensions.get("screen").height;

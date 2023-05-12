@@ -5,6 +5,7 @@ import LoginScreen from "./Screens/LoginScreen";
 import { StatusBar } from "expo-status-bar";
 import BottomTabNavigatorScreen from "./Screens/BottomTabNavigatorScreen";
 import CoffeeDetailsScreen from "./Screens/CoffeeDetailsScreen";
+import PastGifts from "./Screens/PastGifts";
 
 import { useFonts } from "expo-font";
 
@@ -39,6 +40,11 @@ export default function App() {
             options={{ headerShown: false }}
             name="LoginScreen"
             component={LoginScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="PastGifts"
+            component={PastGifts}
           />
           <Stack.Screen
             options={{

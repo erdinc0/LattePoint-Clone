@@ -107,7 +107,7 @@ const CoffeeDetailsScreen = () => {
                   <CustomText style={styles.boldText}>Bardak</CustomText> ile
                   Öde
                 </CustomButton>
-                <CustomButton icon="credit-card" bgFill={false}>
+                <CustomButton bardak={true} icon="credit-card" bgFill={false}>
                   <CustomText style={styles.boldText}>Kredi Kartı</CustomText>{" "}
                   ile Öde
                   <CustomText style={styles.boldText}>

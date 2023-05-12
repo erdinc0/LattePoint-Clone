@@ -4,7 +4,7 @@ import CupContainer from "../Components/CupContainer";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Renkler from "../Constants/Renkler";
 import CustomText from "../Components/CustomText";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import CustomButton from "../Components/CustomButton";
 
 let deviceHeight = Dimensions.get("screen").height;
@@ -30,7 +30,7 @@ const GiftScreen = ({ navigation }) => {
         <View style={styles.topContentContainer}>
           <View style={styles.topSelector}>
             <CustomText style={styles.hediyeler}>Hediyeler</CustomText>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("PastGifts")}>
               <CustomText style={styles.hepsinigor}>Hepsini Gör</CustomText>
             </TouchableOpacity>
           </View>
@@ -60,6 +60,7 @@ const GiftScreen = ({ navigation }) => {
                 </CustomText>
               </CustomText>
               <CustomButton
+                onPress={() => {}}
                 style={styles.bottomButton}
                 icon="gift-outline"
                 bgFill={true}
@@ -69,7 +70,10 @@ const GiftScreen = ({ navigation }) => {
                   Gönder
                 </CustomText>
               </CustomButton>
-              <TouchableOpacity style={styles.bottomLogoTouchable}>
+              <TouchableOpacity
+                onPress={() => {}}
+                style={styles.bottomLogoTouchable}
+              >
                 <MaterialIcons
                   style={styles.bottomLogo}
                   name="person-add-alt-1"
@@ -86,9 +90,9 @@ const GiftScreen = ({ navigation }) => {
           </ScrollView>
         </View>
         <View style={styles.navLogoContainer}>
-          <MaterialIcons
+          <Ionicons
             style={styles.navLogo}
-            name="navigation"
+            name="ios-gift-outline"
             size={24}
             color="black"
           />
@@ -177,7 +181,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   scrollContent: {
-    paddingTop: 70,
+    paddingTop: 55,
     paddingBottom: 70,
   },
   bottomContainer: {
