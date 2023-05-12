@@ -1,22 +1,50 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
 import {
-  SafeAreaFrameContext,
+  StyleSheet,
+  Text,
+  View,
   SafeAreaView,
-} from "react-native-safe-area-context";
-import { TextInput } from "react-native-gesture-handler";
+  TextInput,
+  Image,
+} from "react-native";
+import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
+import Renkler from "../Constants/Renkler";
+import CustomButton from "../Components/CustomButton";
+import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const LoginScreen = () => {
+  let navigasyon = useNavigation();
   return (
     <SafeAreaView>
       <LinearGradient
         // Background Linear Gradient
-        colors={["rgba(64, 164, 221, 1)", "transparent"]}
+        colors={[Renkler.bgColor, "white"]}
         style={styles.background}
       >
         <View style={styles.mainContainer}>
-          <View style={styles.contextContainer}>
+          <View
+            style={{
+              borderRadius: 30,
+              width: 300,
+              height: 300,
+              overflow: "hidden",
+              alignSelf: "center",
+            }}
+          >
+            <Image
+              style={styles.underConstruction}
+              source={require("../assets/img/underConstruction.jpg")}
+            />
+          </View>
+          <View style={{ width: "80%", alignSelf: "center" }}>
+            <TouchableOpacity onPress={() => navigasyon.goBack()}>
+              <CustomButton icon="run" bgFill={true}>
+                <Text style={{ fontWeight: "800" }}>Geri Dön</Text>
+              </CustomButton>
+            </TouchableOpacity>
+          </View>
+          {/*  <View style={styles.contextContainer}>
             <Text style={styles.title}>Telefon Numaranız: </Text>
             <TextInput
               style={styles.textInput}
@@ -28,7 +56,7 @@ const LoginScreen = () => {
               style={styles.textInput}
               placeholder="Şifreniz..."
             />
-          </View>
+          </View> */}
         </View>
       </LinearGradient>
     </SafeAreaView>
@@ -58,5 +86,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 50,
     padding: 20,
+  },
+  underConstruction: {
+    width: "100%",
+    height: "100%",
+    alignSelf: "center",
   },
 });

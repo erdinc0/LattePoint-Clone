@@ -116,12 +116,12 @@ const styles = StyleSheet.create({
   mapContainer: {
     flexDirection: "column",
     justifyContent: "space-between",
-    height: deviceHeight * 0.65,
+    height: deviceHeight * 0.55,
   },
   markersPanel: {
     position: "absolute",
     bottom: 0,
-    height: deviceHeight * 0.35,
+    height: deviceHeight * 0.5,
   },
 
   scrollViewContainer: {
@@ -130,8 +130,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fafafa",
   },
   scrollContent: {
-    paddingTop: 40,
-    paddingBottom: 40,
+    paddingTop: 45,
+    paddingBottom: 140,
   },
   mainContainer: {
     flex: 1,

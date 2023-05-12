@@ -17,7 +17,10 @@ const CoffeCard = ({ children, aciklama, fiyat, cold }) => {
   return (
     <TouchableOpacity
       onPress={() =>
-        navigasyon.navigate("CoffeeDetailsScreen", { title: children })
+        navigasyon.navigate("CoffeeDetailsScreen", {
+          title: children,
+          fiyat: fiyat,
+        })
       }
     >
       <View style={styles.mainContainer}>
@@ -64,10 +67,11 @@ const styles = StyleSheet.create({
     width: 125,
   },
   title: {
-    fontWeight: "800",
+    fontWeight: "700",
     fontSize: 16,
     textAlign: "center",
     fontSize: deviceWidth < 380 ? 16 : 18,
+    top: -5,
   },
   aciklama: {
     fontWeight: "300",

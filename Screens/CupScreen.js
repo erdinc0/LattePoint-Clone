@@ -3,7 +3,7 @@ import React from "react";
 
 const CupScreen = () => {
   return (
-    <View style={styles.mainContainer}>
+    <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
       <Text>CupScreen</Text>
     </View>
   );
@@ -11,8 +11,4 @@ const CupScreen = () => {
 
 export default CupScreen;
 
-const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-  },
-});
+const styles = StyleSheet.create({});

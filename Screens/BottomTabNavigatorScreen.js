@@ -15,6 +15,7 @@ const BottomTabNavigatorScreen = ({ navigation }) => {
         screenOptions={{
           tabBarShowLabel: false,
           tabBarActiveTintColor: Renkler.primaryColor200,
+
           tabBarStyle: {
             height: deviceWidth < 380 ? 80 : 110,
             paddingTop: deviceWidth < 380 ? 30 : 30,
@@ -24,6 +25,8 @@ const BottomTabNavigatorScreen = ({ navigation }) => {
 
             shadowOpacity: 0.25,
             shadowRadius: 10,
+            position: "absolute",
+            bottom: 0,
           },
         }}
       >
@@ -31,6 +34,7 @@ const BottomTabNavigatorScreen = ({ navigation }) => {
           options={{
             tabBarIcon: ({ color, size, focused }) => (
               <Image
+                resizeMode="contain"
                 source={
                   focused
                     ? require("../assets/img/homeActive.png")
@@ -50,14 +54,15 @@ const BottomTabNavigatorScreen = ({ navigation }) => {
           options={{
             tabBarIcon: ({ color, size, focused }) => (
               <Image
+                resizeMode="contain"
                 source={
                   focused
                     ? require("../assets/img/mapActive.png")
                     : require("../assets/img/map.png")
                 }
                 style={{
-                  width: 40,
-                  height: 40,
+                  width: 37,
+                  height: 37,
                 }}
               />
             ),
@@ -70,6 +75,7 @@ const BottomTabNavigatorScreen = ({ navigation }) => {
           options={{
             tabBarIcon: ({ color, size, focused }) => (
               <Image
+                resizeMode="contain"
                 source={
                   focused
                     ? require("../assets/img/giftActive.png")
@@ -89,6 +95,7 @@ const BottomTabNavigatorScreen = ({ navigation }) => {
           options={{
             tabBarIcon: ({ color, size, focused }) => (
               <Image
+                resizeMode="contain"
                 source={
                   focused
                     ? require("../assets/img/cupActive.png")

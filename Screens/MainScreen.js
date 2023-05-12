@@ -1,15 +1,24 @@
-import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
-import React, { useEffect, useState } from "react";
-import { Ionicons } from "@expo/vector-icons";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
-import CoffeCard from "../Components/CoffeCard";
-import { FontAwesome5 } from "@expo/vector-icons";
-import Renkler from "../Constants/Renkler";
-import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Dimensions,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+
 import CupContainer from "../Components/CupContainer";
+import React, { useEffect, useState } from "react";
+import { FontAwesome5 } from "@expo/vector-icons";
+import CoffeCard from "../Components/CoffeCard";
+import { Ionicons } from "@expo/vector-icons";
+import { StatusBar } from "expo-status-bar";
+import Renkler from "../Constants/Renkler";
 import { useRef } from "react";
 
 let deviceWidth = Dimensions.get("screen").width;
+let deviceHeight = Dimensions.get("screen").height;
 
 const MainScreen = ({ navigation }) => {
   let [isTop, setIsTop] = useState(false);
@@ -53,7 +62,9 @@ const MainScreen = ({ navigation }) => {
             <CupContainer />
 
             <View style={styles.profileContiner}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("LoginScreen")}
+              >
                 <View style={styles.personContainer}>
                   <Ionicons
                     style={styles.person}
@@ -73,6 +84,7 @@ const MainScreen = ({ navigation }) => {
                 <View style={styles.hotShot}>
                   <View style={styles.mapIconContainer}>
                     <Image
+                      resizeMode="contain"
                       source={require("../assets/img/mapActive.png")}
                       style={[
                         {
@@ -101,7 +113,10 @@ const MainScreen = ({ navigation }) => {
           <ScrollView
             ref={scrollRef}
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={{ paddingBottom: 25 }}
+            contentContainerStyle={{
+              paddingBottom: deviceWidth < 390 ? 350 : 500,
+              marginTop: deviceWidth < 390 ? 230 : 335,
+            }}
           >
             <View style={styles.baslikContainer}>
               <FontAwesome5
@@ -113,28 +128,28 @@ const MainScreen = ({ navigation }) => {
               <Text style={styles.baslik}>Hot Beverages</Text>
             </View>
             <View style={styles.contentMainContainer}>
-              <CoffeCard fiyat="27,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard fiyat={27.95} aciklama="Kahve & Soğuk Süt">
                 Latte
               </CoffeCard>
-              <CoffeCard fiyat="24,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard fiyat={24.95} aciklama="Kahve & Soğuk Süt">
                 Americano
               </CoffeCard>
-              <CoffeCard fiyat="31,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard fiyat={31.95} aciklama="Kahve & Soğuk Süt">
                 White Chocolate Mocha
               </CoffeCard>
-              <CoffeCard fiyat="39,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard fiyat={39.95} aciklama="Kahve & Soğuk Süt">
                 Caramel Mocha
               </CoffeCard>
-              <CoffeCard fiyat="27,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard fiyat={27.95} aciklama="Kahve & Soğuk Süt">
                 Latte
               </CoffeCard>
-              <CoffeCard fiyat="31,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard fiyat={31.95} aciklama="Kahve & Soğuk Süt">
                 Americano
               </CoffeCard>
-              <CoffeCard fiyat="24,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard fiyat={24.95} aciklama="Kahve & Soğuk Süt">
                 White Chocolate Mocha
               </CoffeCard>
-              <CoffeCard fiyat="34,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard fiyat={34.95} aciklama="Kahve & Soğuk Süt">
                 Caramel Mocha
               </CoffeCard>
             </View>
@@ -148,28 +163,28 @@ const MainScreen = ({ navigation }) => {
               <Text style={styles.baslik}>Cold Beverages</Text>
             </View>
             <View style={styles.contentMainContainer}>
-              <CoffeCard cold={1} fiyat="27,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard cold={1} fiyat={27.95} aciklama="Kahve & Soğuk Süt">
                 Latte
               </CoffeCard>
-              <CoffeCard cold={1} fiyat="24,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard cold={1} fiyat={24.95} aciklama="Kahve & Soğuk Süt">
                 Americano
               </CoffeCard>
-              <CoffeCard cold={1} fiyat="31,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard cold={1} fiyat={31.95} aciklama="Kahve & Soğuk Süt">
                 White Chocolate Mocha
               </CoffeCard>
-              <CoffeCard cold={1} fiyat="39,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard cold={1} fiyat={39.95} aciklama="Kahve & Soğuk Süt">
                 Caramel Mocha
               </CoffeCard>
-              <CoffeCard cold={1} fiyat="27,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard cold={1} fiyat={27.95} aciklama="Kahve & Soğuk Süt">
                 Latte
               </CoffeCard>
-              <CoffeCard cold={1} fiyat="31,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard cold={1} fiyat={31.95} aciklama="Kahve & Soğuk Süt">
                 Americano
               </CoffeCard>
-              <CoffeCard cold={1} fiyat="24,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard cold={1} fiyat={24.95} aciklama="Kahve & Soğuk Süt">
                 White Chocolate Mocha
               </CoffeCard>
-              <CoffeCard cold={1} fiyat="34,00" aciklama="Kahve & Soğuk Süt">
+              <CoffeCard cold={1} fiyat={34.95} aciklama="Kahve & Soğuk Süt">
                 Caramel Mocha
               </CoffeCard>
             </View>
@@ -208,6 +223,12 @@ const styles = StyleSheet.create({
     height: 55,
     top: deviceWidth < 390 ? 32.5 : 62.5,
   },
+  forShadow: {
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    shadowOffset: { height: 2, width: 2 },
+    zIndex: 10,
+  },
   image: {
     width: "100%",
     height: "100%",
@@ -217,6 +238,10 @@ const styles = StyleSheet.create({
     borderBottomEndRadius: 50,
     borderBottomLeftRadius: 50,
     overflow: "hidden",
+
+    position: "absolute",
+    top: 0,
+    width: "100%",
   },
 
   person: {
@@ -274,12 +299,6 @@ const styles = StyleSheet.create({
   },
   ScrollViewContainer: {
     flex: 1,
-  },
-  forShadow: {
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
-    shadowOffset: { height: 2, width: 2 },
-    zIndex: 10,
   },
   baslik: { fontSize: 24, paddingLeft: 15 },
   baslikContainer: {

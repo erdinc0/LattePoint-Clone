@@ -3,7 +3,7 @@ import React from "react";
 
 const GiftScreen = () => {
   return (
-    <View>
+    <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
       <Text>GiftScreen</Text>
     </View>
   );

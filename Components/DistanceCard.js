@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingVertical: 30,
-    borderBottomWidth: 1,
+    paddingVertical: 20,
+    borderBottomWidth: 0.5,
+    borderColor: "#cccccc",
     width: "80%",
     alignSelf: "center",
-    borderBottomColor: "#ababab",
   },
   itemName: {
     fontSize: 20,

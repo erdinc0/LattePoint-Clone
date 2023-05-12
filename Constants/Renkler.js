@@ -1,5 +1,5 @@
 let Renkler = {
-  primaryColor: "#ffd86e",
+  primaryColor: "#ffbb29",
   primaryColor200: "#ffbb29",
   secondary: "#4cadea",
   bgColor: "#f0f0f0",
