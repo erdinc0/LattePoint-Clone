@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  ActivityIndicator,
+  Platform,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import MapView from "react-native-maps";
 import * as Location from "expo-location";
@@ -11,6 +18,8 @@ import DistanceCard from "../Components/DistanceCard";
 
 let deviceHeight = Dimensions.get("screen").height;
 let deviceWidth = Dimensions.get("screen").width;
+let isIos = Platform.OS === "ios";
+
 const MapScreen = () => {
   let [location, setLocation] = useState({
     latitude: 38.9637,
@@ -39,31 +48,40 @@ const MapScreen = () => {
 
   useEffect(() => {
     getPermissons();
-    console.log(location);
   }, []);
 
   return (
     <>
+      <StatusBar style="dark" />
       <View style={styles.mainContainer}>
         <View style={styles.mapContainer}>
-          <MapView
-            initialRegion={{
-              latitude: 38.9637,
-              longitude: 35.2433,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 20,
-            }}
-            region={location}
-            style={styles.map}
-            showsUserLocation={true}
-          />
-          {locationPerm === false ? (
-            <View style={styles.konumTextContainer}>
-              <Text style={styles.konumText}>Konum Bulunuyor...</Text>
-            </View>
+          {isIos ? (
+            <MapView
+              initialRegion={{
+                latitude: 38.9637,
+                longitude: 35.2433,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 20,
+              }}
+              style={styles.map}
+              showsUserLocation={true}
+              followsUserLocation={true}
+            />
           ) : (
-            <></>
+            <MapView
+              initialRegion={{
+                latitude: 38.9637,
+                longitude: 35.2433,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 20,
+              }}
+              region={location}
+              style={styles.map}
+              showsUserLocation={true}
+              followsUserLocation={true}
+            />
           )}
+
           <CupContainer circle={true} />
         </View>
         <View style={styles.markersPanel}>
@@ -92,12 +110,29 @@ const MapScreen = () => {
               </DistanceCard>
             </ScrollView>
             <View style={styles.navLogoContainer}>
-              <MaterialIcons
-                style={styles.navLogo}
-                name="navigation"
-                size={24}
-                color="black"
-              />
+              {isIos === false ? (
+                locationPerm === false ? (
+                  <View>
+                    <View style={styles.konumView}>
+                      <ActivityIndicator color="#ffffff" />
+                    </View>
+                  </View>
+                ) : (
+                  <MaterialIcons
+                    style={styles.navLogo}
+                    name="navigation"
+                    size={24}
+                    color="black"
+                  />
+                )
+              ) : (
+                <MaterialIcons
+                  style={styles.navLogo}
+                  name="navigation"
+                  size={24}
+                  color="black"
+                />
+              )}
             </View>
           </View>
         </View>
@@ -150,16 +185,14 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 40,
   },
-  konumText: {
-    paddingVertical: 10,
-    paddingHorizontal: 25,
-    color: "white",
+  konumView: {
+    padding: 27.5,
   },
-  konumTextContainer: {
+  konumViewContainer: {
     alignSelf: "center",
     position: "absolute",
-    top: 70,
+    top: 50,
     borderRadius: 1000,
-    backgroundColor: "#0000009c",
+    backgroundColor: "#000000b9",
   },
 });
