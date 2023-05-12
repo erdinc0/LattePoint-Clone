@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import Renkler from "../Constants/Renkler";
+import CustomText from "./CustomText";
 
 const SugarSelectorItem = ({ kacSeker, setSugar, sugarState }) => {
   return (
@@ -38,7 +39,12 @@ const SugarSelectorItem = ({ kacSeker, setSugar, sugarState }) => {
                 : require("../assets/img/threeSugar.png")
             }
           />
-          <Text>
+          <CustomText
+            style={{
+              fontFamily:
+                sugarState === kacSeker ? "OpenSans-Bold" : "OpenSans-Regular",
+            }}
+          >
             {kacSeker == 0
               ? "Şekersiz"
               : kacSeker == 1
@@ -46,7 +52,7 @@ const SugarSelectorItem = ({ kacSeker, setSugar, sugarState }) => {
               : kacSeker == 2
               ? "Orta"
               : "Çok"}
-          </Text>
+          </CustomText>
         </View>
       </TouchableOpacity>
     </View>

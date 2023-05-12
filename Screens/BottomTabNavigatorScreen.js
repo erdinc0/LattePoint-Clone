@@ -13,6 +13,10 @@ const BottomTabNavigatorScreen = ({ navigation }) => {
     <View style={{ flex: 1, backgroundColor: Renkler.bgColor }}>
       <BottomTabNavigator.Navigator
         screenOptions={{
+          headerStyle: {
+            height: 100,
+          },
+          headerShadowVisible: false,
           tabBarShowLabel: false,
           tabBarActiveTintColor: Renkler.primaryColor200,
 

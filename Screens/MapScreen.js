@@ -18,6 +18,7 @@ import DistanceCard from "../Components/DistanceCard";
 
 let deviceHeight = Dimensions.get("screen").height;
 let deviceWidth = Dimensions.get("screen").width;
+
 let isIos = Platform.OS === "ios";
 
 const MapScreen = () => {
@@ -183,7 +184,7 @@ const styles = StyleSheet.create({
   navLogo: {
     padding: 17.5,
     color: "white",
-    fontSize: 40,
+    fontSize: 30,
   },
   konumView: {
     padding: 27.5,

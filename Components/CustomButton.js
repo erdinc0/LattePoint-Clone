@@ -3,12 +3,13 @@ import React from "react";
 import Renkler from "../Constants/Renkler";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import CustomText from "./CustomText";
 
-const CustomButton = ({ children, icon, bgFill, bardak }) => {
+const CustomButton = ({ children, icon, bgFill, bardak, style }) => {
   let navigasyon = useNavigation();
 
   return (
-    <View style={styles.buttonMainContainer}>
+    <View style={[styles.buttonMainContainer, style]}>
       <TouchableOpacity
         onPress={() => (bardak ? navigasyon.navigate("CupScreen") : {})}
       >
@@ -29,7 +30,7 @@ const CustomButton = ({ children, icon, bgFill, bardak }) => {
               color={bgFill ? "white" : Renkler.primaryColor200}
             />
           </View>
-          <Text style={styles.buttonText}>{children}</Text>
+          <CustomText style={styles.buttonText}>{children}</CustomText>
         </View>
       </TouchableOpacity>
     </View>

@@ -14,6 +14,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Renkler from "../Constants/Renkler";
 import SugarSelectorItem from "../Components/SugarSelectorItem";
 import CustomButton from "../Components/CustomButton";
+import CustomText from "../Components/CustomText";
 
 let deviceWidth = Dimensions.get("screen").width;
 
@@ -61,7 +62,9 @@ const CoffeeDetailsScreen = () => {
             />
 
             <View style={styles.coffeeNameContainer}>
-              <Text style={styles.coffeeName}>{route.params.title}</Text>
+              <CustomText style={styles.coffeeName}>
+                {route.params.title}
+              </CustomText>
             </View>
           </View>
         </View>
@@ -71,11 +74,11 @@ const CoffeeDetailsScreen = () => {
             showsVerticalScrollIndicator={false}
           >
             <View style={styles.bottomContentContainer}>
-              <Text style={styles.kahveAciklama}>
+              <CustomText style={styles.kahveAciklama}>
                 Kahve severlerin tercihi espresso ve yumuşak süt köpüğü ile
                 taçlandırılmış sütün mükemmel uyumu. Bir kahve klasiği.
-              </Text>
-              <Text style={styles.sekerTercihi}>Şeker Ekle:</Text>
+              </CustomText>
+              <CustomText style={styles.sekerTercihi}>Şeker Ekle:</CustomText>
               <View style={styles.sugarMainContainer}>
                 <SugarSelectorItem
                   kacSeker={0}
@@ -101,11 +104,16 @@ const CoffeeDetailsScreen = () => {
 
               <View style={styles.odemeAlani}>
                 <CustomButton icon="cup" bgFill={true} bardak={true}>
-                  <Text style={styles.boldText}>Bardak</Text> ile Öde
+                  <CustomText style={styles.boldText}>Bardak</CustomText> ile
+                  Öde
                 </CustomButton>
                 <CustomButton icon="credit-card" bgFill={false}>
-                  <Text style={styles.boldText}>Kredi Kartı</Text> ile Öde
-                  <Text style={styles.boldText}> {route.params.fiyat} ₺</Text>
+                  <CustomText style={styles.boldText}>Kredi Kartı</CustomText>{" "}
+                  ile Öde
+                  <CustomText style={styles.boldText}>
+                    {" "}
+                    {route.params.fiyat} ₺
+                  </CustomText>
                 </CustomButton>
               </View>
             </View>
@@ -177,6 +185,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     textAlign: "center",
     width: 145,
+    fontFamily: "OpenSans-SemiBold",
   },
   coffeeNameContainer: {
     position: "absolute",
@@ -210,15 +219,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingBottom: 10,
     fontWeight: "700",
+    fontFamily: "OpenSans-ExtraBold",
     color: "#484848",
   },
   kahveAciklama: {
     textAlign: "center",
     paddingBottom: 20,
-    color: "#676767",
+    fontFamily: "OpenSans-Light",
   },
   boldText: {
-    fontWeight: "700",
+    fontFamily: "OpenSans-Bold",
   },
   odemeAlani: {
     marginTop: 10,

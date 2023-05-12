@@ -12,7 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 
 let deviceWidth = Dimensions.get("screen").width;
 
-const CupContainer = ({ circle }) => {
+const CupContainer = ({ circle, style, styleCup }) => {
   let navigasyon = useNavigation();
   return (
     <>
@@ -22,7 +22,7 @@ const CupContainer = ({ circle }) => {
             <View style={styles.cupContainerCircle}>
               <MaterialCommunityIcons
                 style={[styles.cupCircle]}
-                name="cup"
+                name="cup-outline"
                 size={24}
                 color="black"
               />
@@ -30,11 +30,11 @@ const CupContainer = ({ circle }) => {
           </TouchableOpacity>
         </View>
       ) : (
-        <View style={styles.cupContainer}>
+        <View style={[styles.cupContainer, style]}>
           <TouchableOpacity onPress={() => navigasyon.navigate("CupScreen")}>
             <MaterialCommunityIcons
-              style={[styles.cup]}
-              name="cup"
+              style={[styles.cup, styleCup]}
+              name="cup-outline"
               size={24}
               color="black"
             />

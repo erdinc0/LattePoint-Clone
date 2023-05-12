@@ -1,15 +1,30 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "./Screens/LoginScreen";
 import { StatusBar } from "expo-status-bar";
 import BottomTabNavigatorScreen from "./Screens/BottomTabNavigatorScreen";
 import CoffeeDetailsScreen from "./Screens/CoffeeDetailsScreen";
-import { Ionicons } from "@expo/vector-icons";
+
+import { useFonts } from "expo-font";
 
 let Stack = createStackNavigator();
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    "OpenSans-Regular": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "OpenSans-SemiBold": require("./assets/fonts/OpenSans-SemiBold.ttf"),
+    "OpenSans-Bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+    "OpenSans-ExtraBold": require("./assets/fonts/OpenSans-ExtraBold.ttf"),
+    "OpenSans-Light": require("./assets/fonts/OpenSans-Light.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+  console.log(Text);
+
   return (
     <>
       <StatusBar style="light" />

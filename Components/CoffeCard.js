@@ -9,6 +9,7 @@ import {
 import React from "react";
 import Renkler from "../Constants/Renkler";
 import { useNavigation } from "@react-navigation/native";
+import CustomText from "./CustomText";
 
 let deviceWidth = Dimensions.get("screen").width;
 
@@ -32,8 +33,8 @@ const CoffeCard = ({ children, aciklama, fiyat, cold }) => {
         </View>
 
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>{children}</Text>
-          <Text style={styles.aciklama}>{aciklama}</Text>
+          <CustomText style={styles.title}>{children}</CustomText>
+          <CustomText style={styles.aciklama}>{aciklama}</CustomText>
         </View>
 
         <View
@@ -45,7 +46,7 @@ const CoffeCard = ({ children, aciklama, fiyat, cold }) => {
             },
           ]}
         >
-          <Text style={styles.buyNowText}>{fiyat} ₺</Text>
+          <CustomText style={styles.buyNowText}>{fiyat} ₺</CustomText>
         </View>
       </View>
     </TouchableOpacity>
@@ -72,11 +73,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: deviceWidth < 380 ? 16 : 18,
     top: -5,
+    fontFamily: "OpenSans-Bold",
   },
   aciklama: {
     fontWeight: "300",
     textAlign: "center",
     fontSize: deviceWidth < 380 ? 14 : 16,
+    fontFamily: "OpenSans-Light",
   },
   titleContainer: {
     alignItems: "center",
@@ -87,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
     width: deviceWidth * 0.45,
-    height: 240,
+    height: 250,
     marginVertical: 20,
     marginHorizontal: deviceWidth * 0.025,
     borderRadius: 25,
@@ -105,6 +108,5 @@ const styles = StyleSheet.create({
   buyNowText: {
     textAlign: "center",
     fontSize: 18,
-    fontWeight: "400",
   },
 });
