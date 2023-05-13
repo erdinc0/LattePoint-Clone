@@ -24,8 +24,6 @@ export default function App() {
     return null;
   }
 
-  console.log(Text);
-
   return (
     <>
       <StatusBar style="light" />
