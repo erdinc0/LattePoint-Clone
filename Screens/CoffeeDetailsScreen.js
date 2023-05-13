@@ -34,21 +34,25 @@ const CoffeeDetailsScreen = () => {
   return (
     <>
       <View style={styles.mainContainer}>
-        <View style={styles.forShadow}>
+        <CupContainer style={{ zIndex: 10 }} />
+
+        <View style={styles.profileContiner}>
+          <TouchableOpacity onPress={() => navigasyon.goBack()}>
+            <View style={styles.personContainer}>
+              <Ionicons style={styles.person} name="ios-chevron-back" />
+            </View>
+          </TouchableOpacity>
+        </View>
+        <ScrollView
+          contentContainerStyle={{ paddingBottom: 50 }}
+          showsVerticalScrollIndicator={false}
+        >
           <View style={styles.imageContainer}>
-            <Image
-              style={styles.image}
-              source={require("../assets/img/beans.jpeg")}
-            />
-
-            <CupContainer />
-
-            <View style={styles.profileContiner}>
-              <TouchableOpacity onPress={() => navigasyon.goBack()}>
-                <View style={styles.personContainer}>
-                  <Ionicons style={styles.person} name="ios-chevron-back" />
-                </View>
-              </TouchableOpacity>
+            <View style={styles.forShadow}>
+              <Image
+                style={styles.image}
+                source={require("../assets/img/beans.jpeg")}
+              />
             </View>
           </View>
           <View style={styles.hotShotContainer}>
@@ -67,12 +71,8 @@ const CoffeeDetailsScreen = () => {
               </CustomText>
             </View>
           </View>
-        </View>
-        <View style={styles.bottomMainContainer}>
-          <ScrollView
-            contentContainerStyle={{ paddingBottom: 50 }}
-            showsVerticalScrollIndicator={false}
-          >
+
+          <View style={styles.bottomMainContainer}>
             <View style={styles.bottomContentContainer}>
               <CustomText style={styles.kahveAciklama}>
                 Kahve severlerin tercihi espresso ve yumuşak süt köpüğü ile
@@ -117,8 +117,8 @@ const CoffeeDetailsScreen = () => {
                 </CustomButton>
               </View>
             </View>
-          </ScrollView>
-        </View>
+          </View>
+        </ScrollView>
       </View>
     </>
   );
@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     shadowOpacity: 0.25,
     shadowOffset: { height: 1, width: 1 },
+    zIndex: 10,
   },
   image: {
     width: "100%",

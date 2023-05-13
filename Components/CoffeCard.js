@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   titleContainer: {
     alignItems: "center",
     flex: 3,
-    width: "90%",
+    width: "95%",
   },
   mainContainer: {
     alignItems: "center",
