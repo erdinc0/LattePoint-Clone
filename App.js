@@ -35,7 +35,7 @@ export default function App() {
             component={BottomTabNavigatorScreen}
           />
           <Stack.Screen
-            options={{ headerShown: false }}
+            options={{ headerShown: false, presentation: "modal" }}
             name="LoginScreen"
             component={LoginScreen}
           />

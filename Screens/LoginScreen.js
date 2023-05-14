@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   },
   profileContiner: {
     left: 20,
-    top: deviceWidth < 390 ? 36 : 66,
+    top: 20,
     position: "absolute",
     shadowOpacity: 0.1,
     shadowOffset: { height: 0, width: 0 },
