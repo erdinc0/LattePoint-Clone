@@ -49,6 +49,7 @@ export default function App() {
               headerBackTitleVisible: false,
               headerTintColor: "black",
               headerShown: false,
+              presentation: "modal",
             }}
             name="CoffeeDetailsScreen"
             component={CoffeeDetailsScreen}
